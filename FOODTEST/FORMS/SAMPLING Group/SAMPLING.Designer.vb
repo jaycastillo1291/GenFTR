@@ -215,12 +215,13 @@ Partial Class SAMPLING
         'lvTestList
         '
         Me.lvTestList.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.colRowStamp, Me.colGroup, Me.colTestCode, Me.colTestName, Me.colTMethod, Me.colResult, Me.colGuide, Me.colCompliance, Me.colEditing, Me.colTestedBy, Me.colTestedDate, Me.colCheckBy, Me.colCheckDate})
+        Me.lvTestList.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lvTestList.FullRowSelect = True
         Me.lvTestList.HideSelection = False
-        Me.lvTestList.Location = New System.Drawing.Point(6, 6)
+        Me.lvTestList.Location = New System.Drawing.Point(3, 3)
         Me.lvTestList.MultiSelect = False
         Me.lvTestList.Name = "lvTestList"
-        Me.lvTestList.Size = New System.Drawing.Size(773, 421)
+        Me.lvTestList.Size = New System.Drawing.Size(779, 452)
         Me.lvTestList.TabIndex = 11
         Me.lvTestList.UseCompatibleStateImageBehavior = False
         Me.lvTestList.View = System.Windows.Forms.View.Details
@@ -233,12 +234,12 @@ Partial Class SAMPLING
         'colGroup
         '
         Me.colGroup.Text = "Group"
-        Me.colGroup.Width = 101
+        Me.colGroup.Width = 59
         '
         'colTestCode
         '
         Me.colTestCode.Text = "Code"
-        Me.colTestCode.Width = 120
+        Me.colTestCode.Width = 61
         '
         'colTestName
         '
@@ -275,7 +276,7 @@ Partial Class SAMPLING
         'colTestedDate
         '
         Me.colTestedDate.Text = "Test Date"
-        Me.colTestedDate.Width = 70
+        Me.colTestedDate.Width = 52
         '
         'colCheckBy
         '

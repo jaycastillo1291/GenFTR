@@ -28,6 +28,15 @@ Public Class MAINFORM
         Me.Hide()
             LOGIN.ShowDialog()
         If Not Logged Then GlobalCleanup()
+
+        'If GetAuthorization("POSTING", "POSTING", AccessTypes.cRead) And GroupName <> "Administrator" Then
+        If GetAuthorization("POSTING", "POSTING", AccessTypes.cRead) Then
+            Dim dal As New DataAccessLayer
+            Dim forPostingCount As Integer = dal.ExecuteScalar("SELECT COUNT(DocNum) forPosting FROM TESTSAMPLING WHERE DocStatus = 'Approved'")
+            If forPostingCount > 0 Then
+                MsgBox("You have " & forPostingCount & " documents ready for posting.", vbInformation)
+            End If
+        End If
         'If UserName = "" Then
         '    MsgBox("No Logged user detected. Please Report to Administrator.")
         'Else

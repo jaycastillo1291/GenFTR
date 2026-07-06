@@ -238,22 +238,26 @@
                 Dim item32 As New ToolStripMenuItem
                 Dim item33 As New ToolStripMenuItem
                 Dim item34 As New ToolStripMenuItem
+                Dim item35 As New ToolStripMenuItem
 
                 item31.Name = "TestResult" : item31.Text = "Test Result"
                 item32.Name = "Guide" : item32.Text = "Guide"
                 item33.Name = "Comp" : item33.Text = "Tag/Untag Compliant"
-                item33.Name = "Stamp" : item34.Text = "Edit Stamp"
+                item34.Name = "CheckDate" : item34.Text = "Edit Check Date"
+                item35.Name = "TestDate" : item35.Text = "Edit Test Date"
 
 
                 AddHandler item31.Click, AddressOf EditItemResult
                 AddHandler item32.Click, AddressOf EditItemGuide
                 AddHandler item33.Click, AddressOf SwitchComp
-                AddHandler item34.Click, AddressOf UpdateEditStamp
+                AddHandler item34.Click, Sub(sender, e) UpdateEditStamp(12)
+                AddHandler item35.Click, Sub(sender, e) UpdateEditStamp(10)
 
                 item3StripItem.DropDownItems.Add(item31)
                 item3StripItem.DropDownItems.Add(item32)
                 item3StripItem.DropDownItems.Add(item33)
                 item3StripItem.DropDownItems.Add(item34)
+                item3StripItem.DropDownItems.Add(item35)
             End If
         End If
 
@@ -485,11 +489,11 @@ skipLine:
         If TransLevel = 0 Then TransLevel = 2
     End Sub
 
-    Private Sub UpdateEditStamp()
+    Private Sub UpdateEditStamp(editCol As Integer) 'Edit Check Date
         Dim DefDateValue = ServerDate()
         Dim strEditingDate = ""
         If lvTestList.SelectedItems.Count > 0 Then
-            strEditingDate = lvTestList.SelectedItems(0).SubItems(10).Text
+            strEditingDate = lvTestList.SelectedItems(0).SubItems(editCol).Text
             If strEditingDate = "" Then strEditingDate = DefDateValue
             DefDateValue = Date.Parse(strEditingDate).ToString("MM/dd/yyyy HH:mm")
         End If
@@ -503,7 +507,7 @@ skipLine:
                         "   and cRead = 1"
         Dim dal As New DataAccessLayer
         dal.StrParams.Add("GroupName", GroupName)
-        Dim dt = dal.ExecuteNonQuery(strQry)
+        Dim dt = dal.ExecuteScalar(strQry)
         CheckDateLimit = IIf(dt <= 0, False, True)
 
         'Connect()
@@ -526,11 +530,14 @@ skipLine:
         If dialog.ShowDialog() = DialogResult.OK Then
             Dim selectedDateTime As DateTime = dialog.SelectedDateTime
             ' Use the selectedDateTime as needed
-            lvTestList.SelectedItems(0).SubItems(10).Text = selectedDateTime.ToString("MM/dd/yyyy HH:mm")
+            lvTestList.SelectedItems(0).SubItems(editCol).Text = selectedDateTime.ToString("MM/dd/yyyy HH:mm")
             'MsgBox(selectedDateTime)
         End If
         If TransLevel = 0 Then TransLevel = 2
     End Sub
+
+
+
     Private Sub EditItemGuide()
 
         If lvTestList.SelectedItems.Count <= 0 Then Exit Sub
