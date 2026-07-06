@@ -1,5 +1,8 @@
 ﻿Public Class BATCHPOSTING
     Public strBatchPostingDocNum = ""
+
+    Dim currentMonth As Integer = 0
+
     Private Sub BATCHPOSTING_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dtpList.CustomFormat = "MMM/yyyy"
 
@@ -91,6 +94,10 @@
 
     Private Sub dtpList_ValueChanged(sender As Object, e As EventArgs) Handles dtpList.ValueChanged
         Me.TextBox1.Text = dtpList.Value.Day
+        If currentMonth <> dtpList.Value.Month Then
+            Me.TextBox1.Text = "0"
+        End If
+        currentMonth = dtpList.Value.Month
         ValidateDaysInput()
     End Sub
 

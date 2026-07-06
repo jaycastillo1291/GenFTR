@@ -531,6 +531,8 @@ skipLine:
             Dim selectedDateTime As DateTime = dialog.SelectedDateTime
             ' Use the selectedDateTime as needed
             lvTestList.SelectedItems(0).SubItems(editCol).Text = selectedDateTime.ToString("MM/dd/yyyy HH:mm")
+            lvTestList.SelectedItems(0).SubItems(editCol - 1).Text = UserName
+
             'MsgBox(selectedDateTime)
         End If
         If TransLevel = 0 Then TransLevel = 2
