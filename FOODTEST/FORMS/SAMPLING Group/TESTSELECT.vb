@@ -33,15 +33,12 @@
                         "(SELECt Count(TESTMETHOD.testCode) FROM TESTMETHOD WHERE TESTMETHOD.TestCode = TESTLIST.TestCode) MethodCount FROM TESTLIST WHERE isInactive = 0" &
                         " and GroupName = @GroupName"
 
-
-
         strQry = strQry & " order by left(TestCode, 1), cast(RIGHT(TestCode, LEN(TestCode) - 1) as numeric)"
         'rs = Nothing
         'rs = cn.Execute(strQry)
 
         dal.StrParams.Add("GroupName", cmbGroupName.Text)
         Dim dt = dal.ExecuteQuery(strQry)
-
 
 
         'Tags "N"(Non selective) rows that already exist in the list.
@@ -59,9 +56,6 @@
                 .subitems.add(IIf(iCount < CDbl(row("methodcount")), "Y", "N"))
             End With
         Next
-
-
-
 
         'While Not rs.EOF
         '    iCount = 0
@@ -108,7 +102,7 @@
     Private Sub LoadToSampling()
         If lvTestList.SelectedItems.Count <= 0 Then Exit Sub
         'Connect()
-
+        Dim strTestNumber As String = "", strTestCode As String = ""
 
 
         Dim strRowStamp = lvTestList.SelectedItems(0).Text
@@ -120,7 +114,8 @@
 
         Dim dal As New DataAccessLayer
         dal.StrParams.Add("RowStamp", strRowStamp)
-        Dim dt = dal.ExecuteQuery(strQry)
+        Dim dt As New DataTable
+        dt = dal.ExecuteQuery(strQry)
 
 
         'rs = Nothing
@@ -149,7 +144,8 @@
         '    .strGuide = rs.Fields("TestGuide").Value
         'End With
 
-
+        strTestNumber = SAMPLING.lblTestNumber.Text
+        strTestCode = SAMPLING.strTestCode
 
 
         strQry = "select RowStamp, TestCode, MethodName, " &
@@ -159,8 +155,8 @@
                                   "    and T1.ItemCode = (SELECT ItemName FROM TESTORDER WHERE DocNum = @DocNum) " &
                                   "ORDER BY RowStamp DESC), '') MethodGuide " &
                                   "FROM TESTMETHOD WHERE TestCode = @TestCode"
-        dal.StrParams.Add("DocNum", SAMPLING.lblTestNumber.Text)
-        dal.StrParams.Add("TestCode", SAMPLING.strTestCode)
+        dal.StrParams.Add("DocNum", strTestNumber)
+        dal.StrParams.Add("TestCode", strTestCode)
         dt = dal.ExecuteQuery(strQry)
 
         If dt.Rows.Count < 1 Then

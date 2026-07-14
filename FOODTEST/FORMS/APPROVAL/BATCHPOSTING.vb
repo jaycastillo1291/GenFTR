@@ -31,11 +31,11 @@
         dal.StrParams.Add("AppYear", dblYEar)
         dal.StrParams.Add("AppDay", dblDay)
         Dim dt = dal.ExecuteQuery("select T1.DocNum, Case when isCompliant = 1 then 'Compliant' else 'Non-Compliant' end Compliant, " &
-                     "      T1.DocDate, T1.CreatedBy, isnull(T1.ApprovedBy, '') ApprovedBy, T1.RowStamp " &
+                     "      T2.DocDate, T1.CreatedBy, isnull(T1.ApprovedBy, '') ApprovedBy, T1.RowStamp " &
                      "from TESTSAMPLING T1 " &
                      "      INNER JOIN TESTORDER T2 on T1.DocNum = T2.DocNum and T2.DocStatus <> 'DELETED' " &
-                     "WHERE T1.DocStatus = @DocStatus and month(t1.DocDate) = @AppMonth and year(t1.DocDate) = @AppYear " &
-                     IIf(dblDay = 0, "", "      and Day(t1.DocDate) = @AppDay ") &
+                     "WHERE T1.DocStatus = @DocStatus and month(t2.DocDate) = @AppMonth and year(t2.DocDate) = @AppYear " &
+                     IIf(dblDay = 0, "", "      and Day(t2.DocDate) = @AppDay ") &
                      "ORDER by T2.DocDate Desc")
 
 

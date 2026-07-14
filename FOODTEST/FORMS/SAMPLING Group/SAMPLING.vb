@@ -570,8 +570,9 @@ skipLine:
         With lvTestList.SelectedItems(0)
             .SubItems(7).Text = IIf(.SubItems(7).Text = "NC", "C", "NC")
             .SubItems(8).Text = "1"
+            .SubItems(11).Text = UserName
+            .SubItems(12).Text = ServerDate().ToString("MM/dd/yyyy HH:mm")
         End With
         If TransLevel = 0 Then TransLevel = 2
     End Sub
-
 End Class

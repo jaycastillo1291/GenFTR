@@ -59,6 +59,7 @@ Module COMMONFUNCTION
 
     Public dblGlobalFormat As String = "#,##0.00"
     Public intGlobalFormat As String = "#,##0"
+    Public dtGlobalFormat As String = "MM/dd/yyyy HH:mm"
 
     Public Function RQ(ByVal strRQ)
         strRQ = Replace(strRQ, "'", "`")
@@ -97,7 +98,7 @@ Module COMMONFUNCTION
             ServerDate = DateTime.Now
 
             Dim dal As New DataAccessLayer
-            Dim dt = dal.ExecuteQuery("SELECT GetDate() ServerDate")
+            Dim dt = dal.ExecuteQuery("SELECT FORMAT(GETDATE(), '" & dtGlobalFormat & "') ServerDate")
             For Each row As DataRow In dt.Rows
                 ServerDate = row("ServerDate")
             Next
