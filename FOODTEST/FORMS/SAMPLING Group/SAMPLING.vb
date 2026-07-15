@@ -546,7 +546,6 @@ skipLine:
 
         InitiateTestVariables()
 
-
         strTestGroup = lvTestList.SelectedItems(0).SubItems(1).Text
         strTestCode = lvTestList.SelectedItems(0).SubItems(2).Text
         strTestName = lvTestList.SelectedItems(0).SubItems(3).Text
