@@ -220,6 +220,7 @@
     <Compile Include="MODULES\COMMONFUNCTION.vb" />
     <Compile Include="MODULES\CONNECTION.vb" />
     <Compile Include="MODULES\DataAccessLayer.vb" />
+    <Compile Include="MODULES\FORMRESIZER.vb" />
     <Compile Include="MODULES\MODULECONTROL.vb" />
     <Compile Include="MODULES\REPORTVIEWING.vb" />
     <Compile Include="MODULES\Resizer.vb" />

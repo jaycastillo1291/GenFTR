@@ -2,12 +2,12 @@
     Public strBatchPostingDocNum = ""
 
     Dim currentMonth As Integer = 0
-
+    Private _resizer As FormResizer
     Private Sub BATCHPOSTING_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dtpList.CustomFormat = "MMM/yyyy"
 
         cmbStatus.SelectedIndex = 0
-
+        _resizer = New FormResizer(Me)
 
         With lvForPosting
             .Columns(0).Width = .Width * 0.2
@@ -298,6 +298,10 @@
     Private Sub lvForPosting_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles lvForPosting.MouseDoubleClick
         If lvForPosting.SelectedItems.Count <= 0 Then Exit Sub
         REPORTVIEWING.ShowSampling(lvForPosting.SelectedItems(0).SubItems(5).Text)
+    End Sub
+
+    Private Sub BATCHPOSTING_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        Me.Dispose()
     End Sub
 
     'Private Sub dtpList_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles dtpList.Validating
