@@ -2,7 +2,7 @@
 
     Public strTestGroup, strTestCode, strTestName, strSamplingScheme, strTestResult, strGuide, strUpdateStamp As String
     Public strRequestNumber As String
-
+    Private _resizer As FormResizer
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
         If TransLevel <> 1 Or lblTestNumber.Text <> "0" Then Exit Sub
         GetApprovedRequest()
@@ -157,6 +157,7 @@
     Private Sub SAMPLING_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dtpSampleStamp.CustomFormat = "MM/dd/yyyy HH:mm tt"
         strRequestNumber = ""
+        _resizer = New FormResizer(Me)
 
         DisableControl(TabPage1)
         DisableControl(GBREJECT)

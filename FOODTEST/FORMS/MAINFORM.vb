@@ -65,8 +65,17 @@ Public Class MAINFORM
                 fSelectedForm = TESTLIST
             Case "nTestApprove"
                 fSelectedForm = APPROVAL
+            Case "nNOAS"
+
+                If GroupName = "ADMINISTRATOR" Then
+                    MsgBox("NOAS Form")
+                    fSelectedForm = NOAS
+                Else
+                    Exit Sub
+                End If
+                'Exit Sub
             Case Else
-                MsgBox("No module to show.")
+                'MsgBox("No module to show.")
                 Exit Sub
         End Select
 

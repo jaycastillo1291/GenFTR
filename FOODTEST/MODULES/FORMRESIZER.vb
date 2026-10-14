@@ -104,9 +104,6 @@
 
 End Class
 
-
-
-
 ''Public Class FormResizer
 
 ''    ' Stores original bounds and font size for each control

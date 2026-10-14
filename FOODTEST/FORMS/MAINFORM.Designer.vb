@@ -24,15 +24,16 @@ Partial Class MAINFORM
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MAINFORM))
-        Dim TreeNode28 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Users")
-        Dim TreeNode29 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Test Masterlist")
-        Dim TreeNode30 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Admin Controls", New System.Windows.Forms.TreeNode() {TreeNode28, TreeNode29})
-        Dim TreeNode31 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Food Test Request")
-        Dim TreeNode32 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Sampling Test")
-        Dim TreeNode33 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Data Encoding", New System.Windows.Forms.TreeNode() {TreeNode31, TreeNode32})
-        Dim TreeNode34 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Test Approval")
-        Dim TreeNode35 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Approval", New System.Windows.Forms.TreeNode() {TreeNode34})
-        Dim TreeNode36 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Reports")
+        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Users")
+        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Test Masterlist")
+        Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Admin Controls", New System.Windows.Forms.TreeNode() {TreeNode1, TreeNode2})
+        Dim TreeNode4 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Food Test Request")
+        Dim TreeNode5 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Sampling Test")
+        Dim TreeNode6 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("NOAS Tracking")
+        Dim TreeNode7 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Data Encoding", New System.Windows.Forms.TreeNode() {TreeNode4, TreeNode5, TreeNode6})
+        Dim TreeNode8 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Test Approval")
+        Dim TreeNode9 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Approval", New System.Windows.Forms.TreeNode() {TreeNode8})
+        Dim TreeNode10 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Reports")
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -234,26 +235,28 @@ Partial Class MAINFORM
         Me.tvModuleList.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tvModuleList.Location = New System.Drawing.Point(0, 24)
         Me.tvModuleList.Name = "tvModuleList"
-        TreeNode28.Name = "nUsers"
-        TreeNode28.Text = "Users"
-        TreeNode29.Name = "nTestMasterList"
-        TreeNode29.Text = "Test Masterlist"
-        TreeNode30.Name = "nAdmin"
-        TreeNode30.Text = "Admin Controls"
-        TreeNode30.ToolTipText = "Admin control and setup"
-        TreeNode31.Name = "nTestRequest"
-        TreeNode31.Text = "Food Test Request"
-        TreeNode32.Name = "nFoodTest"
-        TreeNode32.Text = "Sampling Test"
-        TreeNode33.Name = "nEncode"
-        TreeNode33.Text = "Data Encoding"
-        TreeNode34.Name = "nTestApprove"
-        TreeNode34.Text = "Test Approval"
-        TreeNode35.Name = "nApprove"
-        TreeNode35.Text = "Approval"
-        TreeNode36.Name = "nReport"
-        TreeNode36.Text = "Reports"
-        Me.tvModuleList.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode30, TreeNode33, TreeNode35, TreeNode36})
+        TreeNode1.Name = "nUsers"
+        TreeNode1.Text = "Users"
+        TreeNode2.Name = "nTestMasterList"
+        TreeNode2.Text = "Test Masterlist"
+        TreeNode3.Name = "nAdmin"
+        TreeNode3.Text = "Admin Controls"
+        TreeNode3.ToolTipText = "Admin control and setup"
+        TreeNode4.Name = "nTestRequest"
+        TreeNode4.Text = "Food Test Request"
+        TreeNode5.Name = "nFoodTest"
+        TreeNode5.Text = "Sampling Test"
+        TreeNode6.Name = "nNOAS"
+        TreeNode6.Text = "NOAS Tracking"
+        TreeNode7.Name = "nEncode"
+        TreeNode7.Text = "Data Encoding"
+        TreeNode8.Name = "nTestApprove"
+        TreeNode8.Text = "Test Approval"
+        TreeNode9.Name = "nApprove"
+        TreeNode9.Text = "Approval"
+        TreeNode10.Name = "nReport"
+        TreeNode10.Text = "Reports"
+        Me.tvModuleList.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode3, TreeNode7, TreeNode9, TreeNode10})
         Me.tvModuleList.Size = New System.Drawing.Size(198, 630)
         Me.tvModuleList.TabIndex = 5
         '
@@ -271,7 +274,7 @@ Partial Class MAINFORM
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.lblUserName, Me.sep1, Me.lblGroupName, Me.sep2, Me.lblModuleActivity})
         Me.StatusStrip1.Location = New System.Drawing.Point(697, 0)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(324, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(293, 22)
         Me.StatusStrip1.TabIndex = 3
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -315,7 +318,6 @@ Partial Class MAINFORM
         Me.Controls.Add(Me.tvModuleList)
         Me.Controls.Add(Me.MainNavigator)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "MAINFORM"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

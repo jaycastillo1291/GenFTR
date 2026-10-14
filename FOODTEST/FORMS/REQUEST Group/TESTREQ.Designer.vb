@@ -63,6 +63,7 @@ Partial Class TESTREQ
         Me.Label20 = New System.Windows.Forms.Label()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.txtNewItem = New System.Windows.Forms.TextBox()
         Me.chkNoUTD = New System.Windows.Forms.CheckBox()
         Me.txtContNo = New System.Windows.Forms.TextBox()
         Me.cmbSplUnit = New System.Windows.Forms.ComboBox()
@@ -85,6 +86,7 @@ Partial Class TESTREQ
         Me.cmbClient = New System.Windows.Forms.ComboBox()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.txtCompo = New System.Windows.Forms.TextBox()
+        Me.Label23 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
@@ -190,7 +192,7 @@ Partial Class TESTREQ
         '
         Me.dtpDocDate.AccessibleName = "DocDate"
         Me.dtpDocDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpDocDate.Location = New System.Drawing.Point(473, 171)
+        Me.dtpDocDate.Location = New System.Drawing.Point(473, 198)
         Me.dtpDocDate.Name = "dtpDocDate"
         Me.dtpDocDate.Size = New System.Drawing.Size(97, 20)
         Me.dtpDocDate.TabIndex = 16
@@ -198,7 +200,7 @@ Partial Class TESTREQ
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(378, 175)
+        Me.Label4.Location = New System.Drawing.Point(378, 202)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(83, 13)
         Me.Label4.TabIndex = 0
@@ -207,7 +209,7 @@ Partial Class TESTREQ
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(360, 96)
+        Me.Label5.Location = New System.Drawing.Point(360, 123)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(107, 13)
         Me.Label5.TabIndex = 0
@@ -217,7 +219,7 @@ Partial Class TESTREQ
         '
         Me.dtpSampleStamp.AccessibleName = "SamplingTimeStamp"
         Me.dtpSampleStamp.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpSampleStamp.Location = New System.Drawing.Point(473, 93)
+        Me.dtpSampleStamp.Location = New System.Drawing.Point(473, 120)
         Me.dtpSampleStamp.Name = "dtpSampleStamp"
         Me.dtpSampleStamp.Size = New System.Drawing.Size(153, 20)
         Me.dtpSampleStamp.TabIndex = 11
@@ -225,7 +227,7 @@ Partial Class TESTREQ
         'txtPlcSamp
         '
         Me.txtPlcSamp.AccessibleName = "PlaceOfSampling"
-        Me.txtPlcSamp.Location = New System.Drawing.Point(473, 119)
+        Me.txtPlcSamp.Location = New System.Drawing.Point(473, 146)
         Me.txtPlcSamp.Name = "txtPlcSamp"
         Me.txtPlcSamp.Size = New System.Drawing.Size(153, 20)
         Me.txtPlcSamp.TabIndex = 12
@@ -233,7 +235,7 @@ Partial Class TESTREQ
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(372, 122)
+        Me.Label6.Location = New System.Drawing.Point(372, 149)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(95, 13)
         Me.Label6.TabIndex = 0
@@ -348,7 +350,7 @@ Partial Class TESTREQ
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(405, 148)
+        Me.Label12.Location = New System.Drawing.Point(405, 175)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(62, 13)
         Me.Label12.TabIndex = 0
@@ -357,7 +359,7 @@ Partial Class TESTREQ
         'txtAreaTemp
         '
         Me.txtAreaTemp.AccessibleName = "AreaTemp"
-        Me.txtAreaTemp.Location = New System.Drawing.Point(473, 145)
+        Me.txtAreaTemp.Location = New System.Drawing.Point(473, 172)
         Me.txtAreaTemp.Name = "txtAreaTemp"
         Me.txtAreaTemp.Size = New System.Drawing.Size(60, 20)
         Me.txtAreaTemp.TabIndex = 14
@@ -449,7 +451,7 @@ Partial Class TESTREQ
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(409, 38)
+        Me.Label18.Location = New System.Drawing.Point(409, 65)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(58, 13)
         Me.Label18.TabIndex = 0
@@ -458,7 +460,7 @@ Partial Class TESTREQ
         'txtBatchNo
         '
         Me.txtBatchNo.AccessibleName = "BatchNo"
-        Me.txtBatchNo.Location = New System.Drawing.Point(473, 35)
+        Me.txtBatchNo.Location = New System.Drawing.Point(473, 62)
         Me.txtBatchNo.Name = "txtBatchNo"
         Me.txtBatchNo.Size = New System.Drawing.Size(114, 20)
         Me.txtBatchNo.TabIndex = 6
@@ -497,7 +499,7 @@ Partial Class TESTREQ
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(412, 11)
+        Me.Label20.Location = New System.Drawing.Point(406, 11)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(61, 13)
         Me.Label20.TabIndex = 0
@@ -516,6 +518,7 @@ Partial Class TESTREQ
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.txtNewItem)
         Me.TabPage1.Controls.Add(Me.chkNoUTD)
         Me.TabPage1.Controls.Add(Me.txtContNo)
         Me.TabPage1.Controls.Add(Me.cmbSplUnit)
@@ -539,6 +542,7 @@ Partial Class TESTREQ
         Me.TabPage1.Controls.Add(Me.Label16)
         Me.TabPage1.Controls.Add(Me.dtpRecDate)
         Me.TabPage1.Controls.Add(Me.Label15)
+        Me.TabPage1.Controls.Add(Me.Label23)
         Me.TabPage1.Controls.Add(Me.Label20)
         Me.TabPage1.Controls.Add(Me.dtpUTD)
         Me.TabPage1.Controls.Add(Me.txtAreaTemp)
@@ -563,6 +567,14 @@ Partial Class TESTREQ
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "II. Sample Identification"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'txtNewItem
+        '
+        Me.txtNewItem.AccessibleName = "NewItemName"
+        Me.txtNewItem.Location = New System.Drawing.Point(473, 35)
+        Me.txtNewItem.Name = "txtNewItem"
+        Me.txtNewItem.Size = New System.Drawing.Size(190, 20)
+        Me.txtNewItem.TabIndex = 38
         '
         'chkNoUTD
         '
@@ -658,7 +670,7 @@ Partial Class TESTREQ
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(535, 149)
+        Me.Label13.Location = New System.Drawing.Point(535, 176)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(24, 13)
         Me.Label13.TabIndex = 19
@@ -799,11 +811,20 @@ Partial Class TESTREQ
         'txtCompo
         '
         Me.txtCompo.AccessibleName = "Composition"
-        Me.txtCompo.Location = New System.Drawing.Point(473, 62)
+        Me.txtCompo.Location = New System.Drawing.Point(473, 89)
         Me.txtCompo.Name = "txtCompo"
         Me.txtCompo.Size = New System.Drawing.Size(114, 20)
         Me.txtCompo.TabIndex = 10
         Me.txtCompo.Tag = "NUMERIC"
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Location = New System.Drawing.Point(412, 39)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(55, 13)
+        Me.Label23.TabIndex = 0
+        Me.Label23.Text = "New Item:"
         '
         'Label25
         '
@@ -817,7 +838,7 @@ Partial Class TESTREQ
         'Label26
         '
         Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(398, 65)
+        Me.Label26.Location = New System.Drawing.Point(398, 92)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(67, 13)
         Me.Label26.TabIndex = 0
@@ -1362,4 +1383,6 @@ Partial Class TESTREQ
     Friend WithEvents cmbSplUnit As ComboBox
     Friend WithEvents txtContNo As TextBox
     Friend WithEvents chkNoUTD As CheckBox
+    Friend WithEvents txtNewItem As TextBox
+    Friend WithEvents Label23 As Label
 End Class

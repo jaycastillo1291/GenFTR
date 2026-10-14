@@ -1,6 +1,9 @@
 ﻿Public Class TESTREQ
+    Private _resizer As FormResizer
+
     Private Sub TESTREQ_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dtpSampleStamp.CustomFormat = "MM/dd/yyyy HH:mm tt"
+        _resizer = New FormResizer(Me)
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -167,4 +170,20 @@
         Next
     End Sub
 
+    Private Sub cmbItemName_TextChanged(sender As Object, e As EventArgs) Handles cmbItemName.TextChanged, lblTestNumber.TextChanged
+        TESTREQ_NewItem()
+    End Sub
+
+
+    Public Sub TESTREQ_NewItem()
+        If cmbItemName.SelectedValue IsNot Nothing AndAlso cmbItemName.SelectedValue.ToString() = "NEWPRODUCT" Then
+            txtNewItem.Enabled = IIf(cmbItemName.Enabled, True, False)
+        Else
+            With txtNewItem
+                .Enabled = False
+                .Text = ""
+            End With
+
+        End If
+    End Sub
 End Class

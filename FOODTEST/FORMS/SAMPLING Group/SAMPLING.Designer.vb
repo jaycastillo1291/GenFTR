@@ -1184,7 +1184,7 @@ Partial Class SAMPLING
         '
         Me.Label15.Location = New System.Drawing.Point(2, 299)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(124, 44)
+        Me.Label15.Size = New System.Drawing.Size(124, 82)
         Me.Label15.TabIndex = 16
         Me.Label15.Text = "Comments / " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Additional Information / " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Special Instruction:"
         '

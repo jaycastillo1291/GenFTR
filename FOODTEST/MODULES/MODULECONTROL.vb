@@ -126,6 +126,7 @@
                         .Columns(4).Width = .Width * 0.14
                         .Columns(5).Width = .Width * 0.3
                         .Columns(6).Width = .Width * 0.12
+                        .Columns(7).Width = 0
                     End With
                 End With
         End Select
@@ -342,7 +343,6 @@
             Exit Sub
         End If
 
-        'LEAVEAPPLICATION.txtLeaveNo.Text = FrontRS.Fields("LeaveNo").Value
 
         For Each ctrl As Control In MAINFORM.fSelectedForm.Controls
             LoopLoadControl(ctrl)
@@ -682,8 +682,8 @@
                     '    rs.MoveNext()
                     'End While
 
+                    .TESTREQ_NewItem()
                     .TestReqDisableControlsbyStatus(Not (FrontRS.Fields("DocStatus").Value <> "PENDING"))
-
 
                 End With
 

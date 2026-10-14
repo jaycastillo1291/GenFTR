@@ -9,7 +9,6 @@
 
     End Sub
 
-
     Private Sub LoadPending()
         Dim strQry As String
 
@@ -34,6 +33,7 @@
                 .subitems.add(DateTime.Parse(row("DocDate")).ToString("MM/dd/yyyy"))
                 .subitems.add(row("DocStatus"))
                 .subitems.add(row("Remarks"))
+                .subitems.add("")
                 .subitems.add("")
             End With
         Next
@@ -71,13 +71,17 @@
             'Connect()
             'cn.BeginTrans()
             For Each i As ListViewItem In lvApprovalList.Items
-                If UCase(i.SubItems(4).Text) = UCase("Approved") Then
+                'If UCase(i.SubItems(4).Text) = UCase("Approved") Then
+                If UCase(i.SubItems(7).Text) <> "" Then
                     dal = New DataAccessLayer
                     dal.StrParams.Add("RowStamp", i.SubItems(0).Text)
                     dal.StrParams.Add("DocName", i.SubItems(1).Text)
                     dal.StrParams.Add("UserName", UserName)
-                    dal.StrParams.Add("StatusChange", IIf(i.SubItems(6).Text <> "", i.SubItems(6).Text, ""))
-                    Dim dt = dal.ExecuteQuery("EXEC ApproveDocument @RowStamp, @DocName, @UserName, @StatusChange")
+                    'dal.StrParams.Add("StatusChange", IIf(i.SubItems(6).Text <> "", i.SubItems(6).Text, ""))
+                    dal.StrParams.Add("StatusChange", i.SubItems(4).Text)
+                    dal.StrParams.Add("Parameter1", i.SubItems(6).Text)
+                    'Dim dt = dal.ExecuteQuery("EXEC ApproveDocument @RowStamp, @DocName, @UserName, @StatusChange")
+                    Dim dt = dal.ExecuteQuery("EXEC ApproveDocument2 @RowStamp, @DocName, @UserName, @StatusChange, @Parameter1")
 
                     'strApprove = "EXEC ApproveDocument " & i.SubItems(0).Text & ", '" & i.SubItems(1).Text & "', '" & UserName & "'" & IIf(i.SubItems(6).Text <> "", ",'" & i.SubItems(6).Text & "'", "")
 
@@ -97,9 +101,11 @@
                     'End If
 
                     For Each row As DataRow In dt.Rows
-                        If row("Result") = 1 Then
-                            lvErrorList.Items.Add(i.SubItems(0).Text & ", " & i.SubItems(2).Text & ": Already approved")
+                        If row("Result") <> "0" Then
+                            lvErrorList.Items.Add(i.SubItems(0).Text & ", " & i.SubItems(2).Text & ": " & row("Result"))
                         End If
+
+                        'lvErrorList.Items.Add(i.SubItems(0).Text & ", " & i.SubItems(2).Text & ": " & row("Result"))
                     Next
 
                 End If
@@ -134,17 +140,26 @@
         item1.Tag = 1
         AddHandler item1.Click, Sub()
                                     lvApprovalList.SelectedItems(0).SubItems(4).Text = "APPROVED"
+                                    lvApprovalList.SelectedItems(0).SubItems(7).Text = "1"
                                 End Sub
 
-        Dim item2 As ToolStripMenuItem = cms.Items.Add("Tag Pending")
+        Dim item2 As ToolStripMenuItem = cms.Items.Add("Tag Disapproved")
         item2.Tag = 2
         AddHandler item2.Click, Sub()
-                                    lvApprovalList.SelectedItems(0).SubItems(4).Text = "Pending"
+                                    lvApprovalList.SelectedItems(0).SubItems(4).Text = "DISAPPROVED"
+                                    lvApprovalList.SelectedItems(0).SubItems(7).Text = "1"
                                 End Sub
 
-        Dim item3 As ToolStripMenuItem = cms.Items.Add("Show form")
+        Dim item3 As ToolStripMenuItem = cms.Items.Add("Tag Pending")
         item3.Tag = 3
-        AddHandler item3.Click, AddressOf ShowSelectedReport
+        AddHandler item3.Click, Sub()
+                                    lvApprovalList.SelectedItems(0).SubItems(4).Text = IIf(lvApprovalList.SelectedItems(0).SubItems(1).Text = "SAMPLING", "Open", "PENDING")
+                                    lvApprovalList.SelectedItems(0).SubItems(7).Text = "1"
+                                End Sub
+
+        Dim item4 As ToolStripMenuItem = cms.Items.Add("Show form")
+        item3.Tag = 4
+        AddHandler item4.Click, AddressOf ShowSelectedReport
         'AddHandler item3.Click, Sub()
         '                            Me.strApprovalRefNo = lvApprovalList.SelectedItems(0).SubItems(2).Text
         '                            Select Case lvApprovalList.SelectedItems(0).SubItems(1).Text
@@ -158,26 +173,26 @@
 
 
 
-        Dim item4 = cms.Items.Add("Add Parameter")
-        item4.Tag = 4
+        Dim item5 = cms.Items.Add("Add Parameter")
+        item5.Tag = 5
         'AddHandler item3.Click, AddressOf EditItem
-        Dim item4StripItem = DirectCast(item4, ToolStripMenuItem)
-        Dim item41 As New ToolStripMenuItem
-        Dim item42 As New ToolStripMenuItem
+        Dim item5StripItem = DirectCast(item5, ToolStripMenuItem)
+        Dim item51 As New ToolStripMenuItem
+        Dim item52 As New ToolStripMenuItem
         'Dim item43 As New ToolStripMenuItem
 
-        item41.Name = "TestResult" : item41.Text = "Compliant"
-        item42.Name = "Guide" : item42.Text = "Not Compliant"
+        item51.Name = "TestResult" : item51.Text = "Compliant"
+        item52.Name = "Guide" : item52.Text = "Not Compliant"
         'item43.Name = "Comp" : item43.Text = "Tag/Untag Compliant"
 
 
-        AddHandler item41.Click, AddressOf TagCompliant
-        AddHandler item42.Click, AddressOf TagNotCompliant
+        AddHandler item51.Click, AddressOf TagCompliant
+        AddHandler item52.Click, AddressOf TagNotCompliant
         'AddHandler item43.Click, AddressOf SwitchComp
 
         If lvApprovalList.SelectedItems(0).SubItems(1).Text = "SAMPLING" Then
-            item4StripItem.DropDownItems.Add(item41)
-            item4StripItem.DropDownItems.Add(item42)
+            item5StripItem.DropDownItems.Add(item51)
+            item5StripItem.DropDownItems.Add(item52)
             'item4StripItem.DropDownItems.Add(item43)
         End If
 
@@ -188,9 +203,11 @@
 
     Private Sub TagCompliant()
         lvApprovalList.SelectedItems(0).SubItems(6).Text = "COMPLIANT"
+        lvApprovalList.SelectedItems(0).SubItems(7).Text = "1"
     End Sub
     Private Sub TagNotCompliant()
         lvApprovalList.SelectedItems(0).SubItems(6).Text = "NOT COMPLIANT"
+        lvApprovalList.SelectedItems(0).SubItems(7).Text = "1"
     End Sub
 
     Private Sub ShowSelectedReport()

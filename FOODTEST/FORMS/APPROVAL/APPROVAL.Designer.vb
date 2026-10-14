@@ -43,11 +43,12 @@ Partial Class APPROVAL
         Me.dtpDateTo = New System.Windows.Forms.DateTimePicker()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.cb2ClickRep = New System.Windows.Forms.CheckBox()
+        Me.colEdited = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.SuspendLayout()
         '
         'lvApprovalList
         '
-        Me.lvApprovalList.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.colRowStamp, Me.colOrigin, Me.colDocNum, Me.colDate, Me.colStat, Me.colRemarks, Me.colWParam})
+        Me.lvApprovalList.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.colRowStamp, Me.colOrigin, Me.colDocNum, Me.colDate, Me.colStat, Me.colRemarks, Me.colWParam, Me.colEdited})
         Me.lvApprovalList.FullRowSelect = True
         Me.lvApprovalList.HideSelection = False
         Me.lvApprovalList.Location = New System.Drawing.Point(12, 64)
@@ -195,6 +196,10 @@ Partial Class APPROVAL
         Me.cb2ClickRep.Text = "Double click to show form"
         Me.cb2ClickRep.UseVisualStyleBackColor = True
         '
+        'colEdited
+        '
+        Me.colEdited.Text = "isEdited"
+        '
         'APPROVAL
         '
         Me.AccessibleName = "APPROVAL"
@@ -243,4 +248,5 @@ Partial Class APPROVAL
     Friend WithEvents dtpDateTo As DateTimePicker
     Friend WithEvents Label3 As Label
     Friend WithEvents cb2ClickRep As CheckBox
+    Friend WithEvents colEdited As ColumnHeader
 End Class

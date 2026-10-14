@@ -148,6 +148,12 @@
       <DependentUpon>MAINFORM.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FORMS\NOAS Tracking\NOAS.Designer.vb">
+      <DependentUpon>NOAS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FORMS\NOAS Tracking\NOAS.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FORMS\REPORTS\CRYSTALVIEWER.Designer.vb">
       <DependentUpon>CRYSTALVIEWER.vb</DependentUpon>
     </Compile>
@@ -167,6 +173,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FORMS\REQUEST Group\REQUEST_SAVE.vb" />
+    <Compile Include="FORMS\REQUEST Group\SAMPLEREGISTERvb.Designer.vb">
+      <DependentUpon>SAMPLEREGISTERvb.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FORMS\REQUEST Group\SAMPLEREGISTERvb.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FORMS\SAMPLING Group\REJECTSAMPLING.Designer.vb">
       <DependentUpon>REJECTSAMPLING.vb</DependentUpon>
     </Compile>
@@ -275,6 +287,9 @@
     <EmbeddedResource Include="FORMS\MAINFORM.resx">
       <DependentUpon>MAINFORM.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FORMS\NOAS Tracking\NOAS.resx">
+      <DependentUpon>NOAS.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FORMS\REPORTS\CRYSTALVIEWER.resx">
       <DependentUpon>CRYSTALVIEWER.vb</DependentUpon>
     </EmbeddedResource>
@@ -283,6 +298,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FORMS\REQUEST Group\REQTESTLIST.resx">
       <DependentUpon>REQTESTLIST.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORMS\REQUEST Group\SAMPLEREGISTERvb.resx">
+      <DependentUpon>SAMPLEREGISTERvb.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FORMS\SAMPLING Group\REJECTSAMPLING.resx">
       <DependentUpon>REJECTSAMPLING.vb</DependentUpon>
