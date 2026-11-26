@@ -32,8 +32,9 @@
 
         Dim dal As New DataAccessLayer
         dal.StrParams.Add("strDocStatus", cmbGroup.Text)
+        dal.StrParams.Add("TRNNo", txtTRNNo.Text)
         Dim dt = dal.ExecuteQuery("SELECT RowStamp, DocNum, DocDate, RequestedBy, DocStatus, isUrgent 
-                        FROM TESTORDER WHERE DocStatus = @strDocStatus and DocNum not in (SELECT DocNum FROM TESTSAMPLING) order by isUrgent desc, DocDate")
+                        FROM TESTORDER WHERE DocStatus = @strDocStatus and DocNum like '%' + @TRNNO + '%' and DocNum not in (SELECT DocNum FROM TESTSAMPLING) order by isUrgent desc, DocDate")
 
         lvRequests.Items.Clear()
 
@@ -71,6 +72,11 @@
     End Sub
 
     Private Sub cmbGroup_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbGroup.SelectedIndexChanged
+        txtTRNNo.Text = ""
+        DisplayPending()
+    End Sub
+
+    Private Sub txtTRNNo_TextChanged(sender As Object, e As EventArgs) Handles txtTRNNo.TextChanged
         DisplayPending()
     End Sub
 End Class

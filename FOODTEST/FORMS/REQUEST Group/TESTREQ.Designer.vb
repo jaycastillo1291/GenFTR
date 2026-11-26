@@ -820,11 +820,11 @@ Partial Class TESTREQ
         'Label23
         '
         Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(412, 39)
+        Me.Label23.Location = New System.Drawing.Point(379, 38)
         Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(55, 13)
+        Me.Label23.Size = New System.Drawing.Size(86, 13)
         Me.Label23.TabIndex = 0
-        Me.Label23.Text = "New Item:"
+        Me.Label23.Text = "Item Description:"
         '
         'Label25
         '

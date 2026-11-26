@@ -82,6 +82,14 @@
 
     Private Sub RadioButton9_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton9.CheckedChanged
         PanelIVB.Enabled = RadioButton9.Checked
+        If Not (RadioButton9.Checked) Then
+            RadioButton10.Checked = False
+            RadioButton11.Checked = False
+            RadioButton12.Checked = False
+            RadioButton13.Checked = False
+            RadioButton14.Checked = False
+            TextBox12.Text = ""
+        End If
     End Sub
 
     Private Sub ReportingBRBs(sender As Object, e As EventArgs) Handles RadioButton8.CheckedChanged, RadioButton9.CheckedChanged,
@@ -91,8 +99,13 @@
 
         If RadioButton8.Checked Then
             GroupBox6.Enabled = False
+            RadioButton15.Checked = False
+            RadioButton16.Checked = False
         Else
             GroupBox6.Enabled = True
+            RadioButton15.Checked = True
+            RadioButton16.Checked = False
+
         End If
 
     End Sub
@@ -176,7 +189,7 @@
 
 
     Public Sub TESTREQ_NewItem()
-        If cmbItemName.SelectedValue IsNot Nothing AndAlso cmbItemName.SelectedValue.ToString() = "NEWPRODUCT" Then
+        If cmbItemName.SelectedValue IsNot Nothing AndAlso {"NEWPRODUCT", "INLINE", "REWORK"}.Contains(cmbItemName.SelectedValue.ToString()) Then ''(cmbItemName.SelectedValue.ToString() = "NEWPRODUCT") Then
             txtNewItem.Enabled = IIf(cmbItemName.Enabled, True, False)
         Else
             With txtNewItem
@@ -186,4 +199,9 @@
 
         End If
     End Sub
+
+    Private Sub RadioButton7_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton7.CheckedChanged
+
+    End Sub
+
 End Class

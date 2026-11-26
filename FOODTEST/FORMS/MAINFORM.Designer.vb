@@ -23,17 +23,17 @@ Partial Class MAINFORM
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim TreeNode11 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Users")
+        Dim TreeNode12 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Test Masterlist")
+        Dim TreeNode13 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Admin Controls", New System.Windows.Forms.TreeNode() {TreeNode11, TreeNode12})
+        Dim TreeNode14 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Food Test Request")
+        Dim TreeNode15 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Sampling Test")
+        Dim TreeNode16 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("NOAS Tracking")
+        Dim TreeNode17 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Data Encoding", New System.Windows.Forms.TreeNode() {TreeNode14, TreeNode15, TreeNode16})
+        Dim TreeNode18 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Test Approval")
+        Dim TreeNode19 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Approval", New System.Windows.Forms.TreeNode() {TreeNode18})
+        Dim TreeNode20 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Reports")
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MAINFORM))
-        Dim TreeNode1 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Users")
-        Dim TreeNode2 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Test Masterlist")
-        Dim TreeNode3 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Admin Controls", New System.Windows.Forms.TreeNode() {TreeNode1, TreeNode2})
-        Dim TreeNode4 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Food Test Request")
-        Dim TreeNode5 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Sampling Test")
-        Dim TreeNode6 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("NOAS Tracking")
-        Dim TreeNode7 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Data Encoding", New System.Windows.Forms.TreeNode() {TreeNode4, TreeNode5, TreeNode6})
-        Dim TreeNode8 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Test Approval")
-        Dim TreeNode9 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Approval", New System.Windows.Forms.TreeNode() {TreeNode8})
-        Dim TreeNode10 As System.Windows.Forms.TreeNode = New System.Windows.Forms.TreeNode("Reports")
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EditToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -41,19 +41,11 @@ Partial Class MAINFORM
         Me.TestPostingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogOutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MainNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
-        Me.btnAddNew = New System.Windows.Forms.ToolStripButton()
         Me.lblTotalRec = New System.Windows.Forms.ToolStripLabel()
-        Me.btnDelete = New System.Windows.Forms.ToolStripButton()
-        Me.btnMoveFirst = New System.Windows.Forms.ToolStripButton()
-        Me.btnMovePrev = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator()
         Me.txtCurPos = New System.Windows.Forms.ToolStripTextBox()
         Me.BindingNavigatorSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.btnMoveNext = New System.Windows.Forms.ToolStripButton()
-        Me.btnMoveLast = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.btnSave = New System.Windows.Forms.ToolStripButton()
-        Me.btnSearch = New System.Windows.Forms.ToolStripButton()
         Me.tvModuleList = New System.Windows.Forms.TreeView()
         Me.FORMPANEL = New System.Windows.Forms.Panel()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
@@ -62,6 +54,15 @@ Partial Class MAINFORM
         Me.lblGroupName = New System.Windows.Forms.ToolStripStatusLabel()
         Me.sep2 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.lblModuleActivity = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.btnAddNew = New System.Windows.Forms.ToolStripButton()
+        Me.btnDelete = New System.Windows.Forms.ToolStripButton()
+        Me.btnMoveFirst = New System.Windows.Forms.ToolStripButton()
+        Me.btnMovePrev = New System.Windows.Forms.ToolStripButton()
+        Me.btnMoveNext = New System.Windows.Forms.ToolStripButton()
+        Me.btnMoveLast = New System.Windows.Forms.ToolStripButton()
+        Me.btnSave = New System.Windows.Forms.ToolStripButton()
+        Me.btnSearch = New System.Windows.Forms.ToolStripButton()
+        Me.SampleRegisterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.MainNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MainNavigator.SuspendLayout()
@@ -91,7 +92,7 @@ Partial Class MAINFORM
         '
         'ViewToolStripMenuItem
         '
-        Me.ViewToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TestPostingToolStripMenuItem})
+        Me.ViewToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TestPostingToolStripMenuItem, Me.SampleRegisterToolStripMenuItem})
         Me.ViewToolStripMenuItem.Name = "ViewToolStripMenuItem"
         Me.ViewToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
         Me.ViewToolStripMenuItem.Text = "View"
@@ -99,7 +100,7 @@ Partial Class MAINFORM
         'TestPostingToolStripMenuItem
         '
         Me.TestPostingToolStripMenuItem.Name = "TestPostingToolStripMenuItem"
-        Me.TestPostingToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
+        Me.TestPostingToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.TestPostingToolStripMenuItem.Text = "Test Posting"
         '
         'LogOutToolStripMenuItem
@@ -126,48 +127,12 @@ Partial Class MAINFORM
         Me.MainNavigator.TabIndex = 4
         Me.MainNavigator.Text = "BindingNavigator1"
         '
-        'btnAddNew
-        '
-        Me.btnAddNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnAddNew.Image = CType(resources.GetObject("btnAddNew.Image"), System.Drawing.Image)
-        Me.btnAddNew.Name = "btnAddNew"
-        Me.btnAddNew.RightToLeftAutoMirrorImage = True
-        Me.btnAddNew.Size = New System.Drawing.Size(23, 22)
-        Me.btnAddNew.Text = "Add new"
-        '
         'lblTotalRec
         '
         Me.lblTotalRec.Name = "lblTotalRec"
         Me.lblTotalRec.Size = New System.Drawing.Size(35, 22)
         Me.lblTotalRec.Text = "of {0}"
         Me.lblTotalRec.ToolTipText = "Total number of items"
-        '
-        'btnDelete
-        '
-        Me.btnDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnDelete.Image = CType(resources.GetObject("btnDelete.Image"), System.Drawing.Image)
-        Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.RightToLeftAutoMirrorImage = True
-        Me.btnDelete.Size = New System.Drawing.Size(23, 22)
-        Me.btnDelete.Text = "Delete"
-        '
-        'btnMoveFirst
-        '
-        Me.btnMoveFirst.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnMoveFirst.Image = CType(resources.GetObject("btnMoveFirst.Image"), System.Drawing.Image)
-        Me.btnMoveFirst.Name = "btnMoveFirst"
-        Me.btnMoveFirst.RightToLeftAutoMirrorImage = True
-        Me.btnMoveFirst.Size = New System.Drawing.Size(23, 22)
-        Me.btnMoveFirst.Text = "Move first"
-        '
-        'btnMovePrev
-        '
-        Me.btnMovePrev.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnMovePrev.Image = CType(resources.GetObject("btnMovePrev.Image"), System.Drawing.Image)
-        Me.btnMovePrev.Name = "btnMovePrev"
-        Me.btnMovePrev.RightToLeftAutoMirrorImage = True
-        Me.btnMovePrev.Size = New System.Drawing.Size(23, 22)
-        Me.btnMovePrev.Text = "Move previous"
         '
         'BindingNavigatorSeparator
         '
@@ -188,46 +153,10 @@ Partial Class MAINFORM
         Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
         Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 25)
         '
-        'btnMoveNext
-        '
-        Me.btnMoveNext.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnMoveNext.Image = CType(resources.GetObject("btnMoveNext.Image"), System.Drawing.Image)
-        Me.btnMoveNext.Name = "btnMoveNext"
-        Me.btnMoveNext.RightToLeftAutoMirrorImage = True
-        Me.btnMoveNext.Size = New System.Drawing.Size(23, 22)
-        Me.btnMoveNext.Text = "Move next"
-        '
-        'btnMoveLast
-        '
-        Me.btnMoveLast.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnMoveLast.Image = CType(resources.GetObject("btnMoveLast.Image"), System.Drawing.Image)
-        Me.btnMoveLast.Name = "btnMoveLast"
-        Me.btnMoveLast.RightToLeftAutoMirrorImage = True
-        Me.btnMoveLast.Size = New System.Drawing.Size(23, 22)
-        Me.btnMoveLast.Text = "Move last"
-        '
         'BindingNavigatorSeparator2
         '
         Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
         Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
-        '
-        'btnSave
-        '
-        Me.btnSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnSave.Image = CType(resources.GetObject("btnSave.Image"), System.Drawing.Image)
-        Me.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(23, 22)
-        Me.btnSave.Text = "Save"
-        '
-        'btnSearch
-        '
-        Me.btnSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btnSearch.Image = CType(resources.GetObject("btnSearch.Image"), System.Drawing.Image)
-        Me.btnSearch.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(23, 22)
-        Me.btnSearch.Text = "Search"
         '
         'tvModuleList
         '
@@ -235,28 +164,28 @@ Partial Class MAINFORM
         Me.tvModuleList.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tvModuleList.Location = New System.Drawing.Point(0, 24)
         Me.tvModuleList.Name = "tvModuleList"
-        TreeNode1.Name = "nUsers"
-        TreeNode1.Text = "Users"
-        TreeNode2.Name = "nTestMasterList"
-        TreeNode2.Text = "Test Masterlist"
-        TreeNode3.Name = "nAdmin"
-        TreeNode3.Text = "Admin Controls"
-        TreeNode3.ToolTipText = "Admin control and setup"
-        TreeNode4.Name = "nTestRequest"
-        TreeNode4.Text = "Food Test Request"
-        TreeNode5.Name = "nFoodTest"
-        TreeNode5.Text = "Sampling Test"
-        TreeNode6.Name = "nNOAS"
-        TreeNode6.Text = "NOAS Tracking"
-        TreeNode7.Name = "nEncode"
-        TreeNode7.Text = "Data Encoding"
-        TreeNode8.Name = "nTestApprove"
-        TreeNode8.Text = "Test Approval"
-        TreeNode9.Name = "nApprove"
-        TreeNode9.Text = "Approval"
-        TreeNode10.Name = "nReport"
-        TreeNode10.Text = "Reports"
-        Me.tvModuleList.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode3, TreeNode7, TreeNode9, TreeNode10})
+        TreeNode11.Name = "nUsers"
+        TreeNode11.Text = "Users"
+        TreeNode12.Name = "nTestMasterList"
+        TreeNode12.Text = "Test Masterlist"
+        TreeNode13.Name = "nAdmin"
+        TreeNode13.Text = "Admin Controls"
+        TreeNode13.ToolTipText = "Admin control and setup"
+        TreeNode14.Name = "nTestRequest"
+        TreeNode14.Text = "Food Test Request"
+        TreeNode15.Name = "nFoodTest"
+        TreeNode15.Text = "Sampling Test"
+        TreeNode16.Name = "nNOAS"
+        TreeNode16.Text = "NOAS Tracking"
+        TreeNode17.Name = "nEncode"
+        TreeNode17.Text = "Data Encoding"
+        TreeNode18.Name = "nTestApprove"
+        TreeNode18.Text = "Test Approval"
+        TreeNode19.Name = "nApprove"
+        TreeNode19.Text = "Approval"
+        TreeNode20.Name = "nReport"
+        TreeNode20.Text = "Reports"
+        Me.tvModuleList.Nodes.AddRange(New System.Windows.Forms.TreeNode() {TreeNode13, TreeNode17, TreeNode19, TreeNode20})
         Me.tvModuleList.Size = New System.Drawing.Size(198, 630)
         Me.tvModuleList.TabIndex = 5
         '
@@ -307,6 +236,84 @@ Partial Class MAINFORM
         Me.lblModuleActivity.Name = "lblModuleActivity"
         Me.lblModuleActivity.Size = New System.Drawing.Size(108, 17)
         Me.lblModuleActivity.Text = "MODULE_ACTIVITY"
+        '
+        'btnAddNew
+        '
+        Me.btnAddNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnAddNew.Image = CType(resources.GetObject("btnAddNew.Image"), System.Drawing.Image)
+        Me.btnAddNew.Name = "btnAddNew"
+        Me.btnAddNew.RightToLeftAutoMirrorImage = True
+        Me.btnAddNew.Size = New System.Drawing.Size(23, 22)
+        Me.btnAddNew.Text = "Add new"
+        '
+        'btnDelete
+        '
+        Me.btnDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnDelete.Image = CType(resources.GetObject("btnDelete.Image"), System.Drawing.Image)
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.RightToLeftAutoMirrorImage = True
+        Me.btnDelete.Size = New System.Drawing.Size(23, 22)
+        Me.btnDelete.Text = "Delete"
+        '
+        'btnMoveFirst
+        '
+        Me.btnMoveFirst.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnMoveFirst.Image = CType(resources.GetObject("btnMoveFirst.Image"), System.Drawing.Image)
+        Me.btnMoveFirst.Name = "btnMoveFirst"
+        Me.btnMoveFirst.RightToLeftAutoMirrorImage = True
+        Me.btnMoveFirst.Size = New System.Drawing.Size(23, 22)
+        Me.btnMoveFirst.Text = "Move first"
+        '
+        'btnMovePrev
+        '
+        Me.btnMovePrev.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnMovePrev.Image = CType(resources.GetObject("btnMovePrev.Image"), System.Drawing.Image)
+        Me.btnMovePrev.Name = "btnMovePrev"
+        Me.btnMovePrev.RightToLeftAutoMirrorImage = True
+        Me.btnMovePrev.Size = New System.Drawing.Size(23, 22)
+        Me.btnMovePrev.Text = "Move previous"
+        '
+        'btnMoveNext
+        '
+        Me.btnMoveNext.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnMoveNext.Image = CType(resources.GetObject("btnMoveNext.Image"), System.Drawing.Image)
+        Me.btnMoveNext.Name = "btnMoveNext"
+        Me.btnMoveNext.RightToLeftAutoMirrorImage = True
+        Me.btnMoveNext.Size = New System.Drawing.Size(23, 22)
+        Me.btnMoveNext.Text = "Move next"
+        '
+        'btnMoveLast
+        '
+        Me.btnMoveLast.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnMoveLast.Image = CType(resources.GetObject("btnMoveLast.Image"), System.Drawing.Image)
+        Me.btnMoveLast.Name = "btnMoveLast"
+        Me.btnMoveLast.RightToLeftAutoMirrorImage = True
+        Me.btnMoveLast.Size = New System.Drawing.Size(23, 22)
+        Me.btnMoveLast.Text = "Move last"
+        '
+        'btnSave
+        '
+        Me.btnSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnSave.Image = CType(resources.GetObject("btnSave.Image"), System.Drawing.Image)
+        Me.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(23, 22)
+        Me.btnSave.Text = "Save"
+        '
+        'btnSearch
+        '
+        Me.btnSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnSearch.Image = CType(resources.GetObject("btnSearch.Image"), System.Drawing.Image)
+        Me.btnSearch.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(23, 22)
+        Me.btnSearch.Text = "Search"
+        '
+        'SampleRegisterToolStripMenuItem
+        '
+        Me.SampleRegisterToolStripMenuItem.Name = "SampleRegisterToolStripMenuItem"
+        Me.SampleRegisterToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SampleRegisterToolStripMenuItem.Text = "Sample Register"
         '
         'MAINFORM
         '
@@ -362,4 +369,5 @@ Partial Class MAINFORM
     Friend WithEvents sep2 As ToolStripStatusLabel
     Friend WithEvents lblModuleActivity As ToolStripStatusLabel
     Friend WithEvents TestPostingToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SampleRegisterToolStripMenuItem As ToolStripMenuItem
 End Class

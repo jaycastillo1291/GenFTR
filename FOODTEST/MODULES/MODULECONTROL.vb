@@ -459,13 +459,16 @@
                     .RadioButton7.Checked = False
                     .RadioButton8.Checked = True
                     .RadioButton9.Checked = False
-                    .RadioButton10.Checked = True
+                    .RadioButton10.Checked = False
                     .RadioButton11.Checked = False
                     .RadioButton12.Checked = False
                     .RadioButton13.Checked = False
                     .RadioButton14.Checked = False
-                    .RadioButton15.Checked = True
+                    .RadioButton15.Checked = False
                     .RadioButton16.Checked = False
+                    .CheckBox4.Checked = False
+                    .CheckBox5.Checked = False
+                    .PanelIVB.Enabled = False
 
                     .lvTestList.Items.Clear()
                 End With
@@ -774,7 +777,14 @@
                     Auto1(.cmbClient, "select '' Code, '' Description union all select Distinct ClientCode Code, ClientName Description from SETUP_ClientMasterfile WHERE Status = 'Active'", "SETUP_ClientMasterfile")
                     'Auto1(.cmbContNo, "select '' Code, '' Description union all Select Distinct ContainerNo Code, ContainerNo Description FROM TESTORDER WHERE DocStatus <> 'Canceled'", "TESTORDER")
                     'Auto1(.cmbItemName, "select '' Code, '' Description, '12/31/3000' CreatedDate union all SELECT distinct TOP 20 ItemName Code, ItemName Description, max(CreatedDate) CreatedDate FROM TESTORDER WHERE DocStatus <> 'Deleted' group by ItemName order by 3 desc", "TESTORDER")
-                    Auto1(.cmbItemName, "select ItemCode Code, Description from ItemMasterdata  WHERE Active = 1  order by ItemType, Description", "ItemMasterdata")
+                    'Auto1(.cmbItemName, "select ItemCode Code, Description from ItemMasterdata  WHERE Active = 1  order by ItemType, Description", "ItemMasterdata")
+                    Auto1(.cmbItemName, "select ItemCode Code, Description,
+		                                        (CASE WHEN ItemCode in ('NEWPRODUCT','REWORK','INLINE') then 1 
+			                                        WHEN ItemType in ('FG') then 2
+			                                        WHEN ItemType in ('RM') then 3
+			                                        ELSE 4
+		                                        end) SortBy
+                                        from ItemMasterdata  WHERE Active = 1  order by 3, Description", "ItemMasterdata")
                     Auto1(.cmbSplUnit, "SELECT 'g' Code, 'g' Description Union all  SELECT 'mL' Code, 'mL' Description ", "")
                     Auto1(.cmbTstPur, "SELECT 'Initial Test' Code, 'Initial Test' Description " &
                                        "union all " &

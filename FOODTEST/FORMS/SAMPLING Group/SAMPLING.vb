@@ -55,7 +55,9 @@
         '                FROM TESTORDER WHERE DocNum = @DocNum"
 
         Dim strQry = "select Top 1 DocNum, DocDate, RequestedBy, ReqDept, isnull((SELECT i2.ClientName FROM SETUP_ClientMasterfile i2 WHERE i2.ClientCode = Customer),'') Customer, BatchNo, ContainerNo, Composition, ProdDate, UTD, RecDate, 
-                                SamplingTimeStamp, PlaceOfSampling, AreaTemp, SampleQty, SplUnit, StoreReqCmb, StoreReqOth, isnull((SELECT top 1  Description FROM ItemMasterData i1 WHERE i1.Itemcode = ItemName),'') ItemName, TestPurpose, Remarks, isServNorm, isUrgent, isDisposal, isReturnPickup, isReportSigned, isReportDigital, isAWithUncert, isANoUncert, isBNoConfo, isBConfo, isDecision1, isDecision2, isUrgentA, isUrgentB, isUrgentC, isFDACirc, isSuppSpec, isInternalSpec, isPNS, isBOther, txtBOther 
+                                SamplingTimeStamp, PlaceOfSampling, AreaTemp, SampleQty, SplUnit, StoreReqCmb, StoreReqOth, 
+                            isnull(case when ItemName in ('INLINE','REWORK','NEWPRODUCT') THEN '(' + ItemName + ') ' + NewItemName
+					        ELSE (SELECT top 1  Description FROM ItemMasterData i1 WHERE i1.Itemcode = ItemName) END,'') ItemName, TestPurpose, Remarks, isServNorm, isUrgent, isDisposal, isReturnPickup, isReportSigned, isReportDigital, isAWithUncert, isANoUncert, isBNoConfo, isBConfo, isDecision1, isDecision2, isUrgentA, isUrgentB, isUrgentC, isFDACirc, isSuppSpec, isInternalSpec, isPNS, isBOther, txtBOther 
                         FROM TESTORDER WHERE DocNum = @DocNum"
         Dim dal As New DataAccessLayer
         dal.StrParams.Add("DocNum", Trim(lblTestNumber.Text))

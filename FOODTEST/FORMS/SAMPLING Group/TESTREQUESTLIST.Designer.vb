@@ -31,9 +31,11 @@ Partial Class TESTREQUESTLIST
         Me.colRequestBy = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.colDateNeeded = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.colStatus = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.colUrgent = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.btnOK = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
-        Me.colUrgent = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.txtTRNNo = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label1
@@ -53,7 +55,7 @@ Partial Class TESTREQUESTLIST
         Me.cmbGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbGroup.FormattingEnabled = True
         Me.cmbGroup.Items.AddRange(New Object() {"Approved", "Pending"})
-        Me.cmbGroup.Location = New System.Drawing.Point(369, 31)
+        Me.cmbGroup.Location = New System.Drawing.Point(369, 17)
         Me.cmbGroup.Name = "cmbGroup"
         Me.cmbGroup.Size = New System.Drawing.Size(214, 21)
         Me.cmbGroup.TabIndex = 3
@@ -95,6 +97,10 @@ Partial Class TESTREQUESTLIST
         '
         Me.colStatus.Text = "Status"
         '
+        'colUrgent
+        '
+        Me.colUrgent.Text = "-"
+        '
         'btnOK
         '
         Me.btnOK.Location = New System.Drawing.Point(466, 383)
@@ -114,9 +120,21 @@ Partial Class TESTREQUESTLIST
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
         '
-        'colUrgent
+        'txtTRNNo
         '
-        Me.colUrgent.Text = "-"
+        Me.txtTRNNo.Location = New System.Drawing.Point(411, 45)
+        Me.txtTRNNo.Name = "txtTRNNo"
+        Me.txtTRNNo.Size = New System.Drawing.Size(172, 20)
+        Me.txtTRNNo.TabIndex = 6
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(366, 48)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(39, 13)
+        Me.Label2.TabIndex = 7
+        Me.Label2.Text = "TRN  :"
         '
         'TESTREQUESTLIST
         '
@@ -125,6 +143,8 @@ Partial Class TESTREQUESTLIST
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnCancel
         Me.ClientSize = New System.Drawing.Size(596, 412)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.txtTRNNo)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnOK)
         Me.Controls.Add(Me.lvRequests)
@@ -151,4 +171,6 @@ Partial Class TESTREQUESTLIST
     Friend WithEvents btnOK As Button
     Friend WithEvents btnCancel As Button
     Friend WithEvents colUrgent As ColumnHeader
+    Friend WithEvents txtTRNNo As TextBox
+    Friend WithEvents Label2 As Label
 End Class

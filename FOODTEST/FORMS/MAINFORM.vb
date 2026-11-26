@@ -213,6 +213,12 @@ Public Class MAINFORM
             BATCHPOSTING.ShowDialog()
         End If
     End Sub
+    Private Sub SampleRegisterToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SampleRegisterToolStripMenuItem.Click
+        If GetAuthorization("TESTORDER", "Sample Register", AccessTypes.cRead) Then
+            SAMPLEREGISTER.ShowDialog()
+        End If
+    End Sub
+
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         If Me.fSelectedForm Is Nothing Then Exit Sub
@@ -278,4 +284,5 @@ Public Class MAINFORM
         '    ' We don't want to crash during shutdown
         'End Try
     End Sub
+
 End Class

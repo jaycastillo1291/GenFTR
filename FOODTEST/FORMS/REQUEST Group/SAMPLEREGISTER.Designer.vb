@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class SAMPLEREGISTERvb
+Partial Class SAMPLEREGISTER
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -47,6 +47,8 @@ Partial Class SAMPLEREGISTERvb
         Me.btnCreateReg = New System.Windows.Forms.Button()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.btnView = New System.Windows.Forms.Button()
+        Me.btnLoadtoList = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -100,7 +102,7 @@ Partial Class SAMPLEREGISTERvb
         Me.lvRegDetails.Location = New System.Drawing.Point(3, 16)
         Me.lvRegDetails.MultiSelect = False
         Me.lvRegDetails.Name = "lvRegDetails"
-        Me.lvRegDetails.Size = New System.Drawing.Size(529, 333)
+        Me.lvRegDetails.Size = New System.Drawing.Size(660, 333)
         Me.lvRegDetails.TabIndex = 1
         Me.lvRegDetails.UseCompatibleStateImageBehavior = False
         Me.lvRegDetails.View = System.Windows.Forms.View.Details
@@ -150,7 +152,7 @@ Partial Class SAMPLEREGISTERvb
         Me.GroupBox1.Controls.Add(Me.lvRegDetails)
         Me.GroupBox1.Location = New System.Drawing.Point(378, 86)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(535, 352)
+        Me.GroupBox1.Size = New System.Drawing.Size(666, 352)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Test List"
@@ -168,7 +170,7 @@ Partial Class SAMPLEREGISTERvb
         'dtpDateFrom
         '
         Me.dtpDateFrom.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpDateFrom.Location = New System.Drawing.Point(96, 22)
+        Me.dtpDateFrom.Location = New System.Drawing.Point(89, 21)
         Me.dtpDateFrom.Name = "dtpDateFrom"
         Me.dtpDateFrom.Size = New System.Drawing.Size(97, 20)
         Me.dtpDateFrom.TabIndex = 4
@@ -176,7 +178,7 @@ Partial Class SAMPLEREGISTERvb
         'dtpDateTo
         '
         Me.dtpDateTo.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpDateTo.Location = New System.Drawing.Point(224, 22)
+        Me.dtpDateTo.Location = New System.Drawing.Point(89, 47)
         Me.dtpDateTo.Name = "dtpDateTo"
         Me.dtpDateTo.Size = New System.Drawing.Size(97, 20)
         Me.dtpDateTo.TabIndex = 4
@@ -184,53 +186,74 @@ Partial Class SAMPLEREGISTERvb
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(61, 26)
+        Me.Label1.Location = New System.Drawing.Point(24, 24)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(30, 13)
+        Me.Label1.Size = New System.Drawing.Size(59, 13)
         Me.Label1.TabIndex = 5
-        Me.Label1.Text = "Date"
+        Me.Label1.Text = "Date From:"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(205, 25)
+        Me.Label2.Location = New System.Drawing.Point(64, 51)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(16, 13)
+        Me.Label2.Size = New System.Drawing.Size(19, 13)
         Me.Label2.TabIndex = 5
-        Me.Label2.Text = "to"
+        Me.Label2.Text = "to:"
         '
         'btnCreateReg
         '
-        Me.btnCreateReg.Location = New System.Drawing.Point(703, 36)
+        Me.btnCreateReg.Location = New System.Drawing.Point(466, 30)
         Me.btnCreateReg.Name = "btnCreateReg"
-        Me.btnCreateReg.Size = New System.Drawing.Size(101, 46)
+        Me.btnCreateReg.Size = New System.Drawing.Size(153, 25)
         Me.btnCreateReg.TabIndex = 6
         Me.btnCreateReg.Text = "Create Register"
         Me.btnCreateReg.UseVisualStyleBackColor = True
         '
         'btnSave
         '
-        Me.btnSave.Location = New System.Drawing.Point(810, 36)
+        Me.btnSave.Location = New System.Drawing.Point(466, 61)
         Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(101, 46)
+        Me.btnSave.Size = New System.Drawing.Size(153, 25)
         Me.btnSave.TabIndex = 6
         Me.btnSave.Text = "SAVE"
         Me.btnSave.UseVisualStyleBackColor = True
         '
         'btnView
         '
-        Me.btnView.Location = New System.Drawing.Point(92, 48)
+        Me.btnView.Location = New System.Drawing.Point(218, 18)
         Me.btnView.Name = "btnView"
-        Me.btnView.Size = New System.Drawing.Size(229, 23)
+        Me.btnView.Size = New System.Drawing.Size(129, 23)
         Me.btnView.TabIndex = 6
-        Me.btnView.Text = "View Register"
+        Me.btnView.Text = "View Register List"
         Me.btnView.UseVisualStyleBackColor = True
         '
-        'SAMPLEREGISTERvb
+        'btnLoadtoList
         '
+        Me.btnLoadtoList.Location = New System.Drawing.Point(218, 47)
+        Me.btnLoadtoList.Name = "btnLoadtoList"
+        Me.btnLoadtoList.Size = New System.Drawing.Size(129, 23)
+        Me.btnLoadtoList.TabIndex = 6
+        Me.btnLoadtoList.Text = "Load to Details"
+        Me.btnLoadtoList.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(625, 30)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(104, 56)
+        Me.Button1.TabIndex = 7
+        Me.Button1.Text = "Print"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'SAMPLEREGISTER
+        '
+        Me.AcceptButton = Me.btnView
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(925, 439)
+        Me.ClientSize = New System.Drawing.Size(1055, 439)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnLoadtoList)
         Me.Controls.Add(Me.btnView)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.btnCreateReg)
@@ -240,7 +263,8 @@ Partial Class SAMPLEREGISTERvb
         Me.Controls.Add(Me.dtpDateFrom)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Name = "SAMPLEREGISTERvb"
+        Me.Name = "SAMPLEREGISTER"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "SAMPLE REGISTER"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
@@ -274,4 +298,6 @@ Partial Class SAMPLEREGISTERvb
     Friend WithEvents btnCreateReg As Button
     Friend WithEvents btnSave As Button
     Friend WithEvents btnView As Button
+    Friend WithEvents btnLoadtoList As Button
+    Friend WithEvents Button1 As Button
 End Class

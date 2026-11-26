@@ -15,9 +15,19 @@
                     .txtSampleQty.Text = "0.00"
                     .lblStatus.Text = "PENDING"
                     .CheckBox4.Checked = False
-                    .CheckBox5.Checked = True
+                    .CheckBox5.Checked = False
                     .RadioButton6.Checked = False
                     .RadioButton7.Checked = True
+                    .RadioButton10.Checked = False
+                    .RadioButton11.Checked = False
+                    .RadioButton12.Checked = False
+                    .RadioButton13.Checked = False
+                    .RadioButton14.Checked = False
+                    .TextBox12.Text = ""
+                    .RadioButton15.Checked = False
+                    .RadioButton16.Checked = False
+
+
                 End With
             Case SAMPLING.Name
                 With SAMPLING

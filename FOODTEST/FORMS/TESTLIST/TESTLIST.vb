@@ -200,7 +200,7 @@
                                ,@Methodology
                                ,@TestGuide
                                ,@Remarks
-                               ,@isInactive; select SCOPE_IDENTITY()"
+                               ,@isInactive); select SCOPE_IDENTITY()"
             End If
         End If
 

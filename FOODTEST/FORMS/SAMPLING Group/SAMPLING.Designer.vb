@@ -596,7 +596,7 @@ Partial Class SAMPLING
         Me.txtItemName.AccessibleName = ""
         Me.txtItemName.Location = New System.Drawing.Point(527, 36)
         Me.txtItemName.Name = "txtItemName"
-        Me.txtItemName.Size = New System.Drawing.Size(153, 20)
+        Me.txtItemName.Size = New System.Drawing.Size(229, 20)
         Me.txtItemName.TabIndex = 3
         '
         'Label17
@@ -1209,7 +1209,7 @@ Partial Class SAMPLING
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage3.Size = New System.Drawing.Size(785, 458)
         Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "IV. Submission Information"
+        Me.TabPage3.Text = "V. Submission Information"
         Me.TabPage3.UseVisualStyleBackColor = True
         '
         'GBREJECT

@@ -18,6 +18,10 @@ Module REPORTVIEWING
         ShowReportDialog(IIf(isPreview, "SAMPLINGREPORTPREV", "SAMPLINGREPORT"))
     End Sub
 
+    Public Sub ShowSampleRegister(strRegNoRS As String)
+        strRequestRowStamp = strRegNoRS
+        ShowReportDialog("SAMPLEREGISTER")
+    End Sub
 
     Public Sub ShowReportDialog(ByVal strReportName)
         'Dim frm As New LoadingForm()
@@ -90,6 +94,16 @@ Module REPORTVIEWING
 
                 cryRpt.Load(strNewReportPath & "FoodTestSampling.rpt")
 
+            Case "SAMPLEREGISTER"
+                paramCnt = 3
+                ReDim strParams(3, paramCnt)
+
+                strParams(0, 0) = "ApproverID" : strParams(1, 0) = UserName
+                strParams(0, 1) = "GroupName" : strParams(1, 1) = GroupName
+                strParams(0, 2) = "RegNoRS" : strParams(1, 2) = strRequestRowStamp
+                strParams(0, 3) = "IsDisplayIn" : strParams(1, 3) = "R"
+
+                cryRpt.Load(strNewReportPath & "SAMPLEREGISTER.rpt")
 
             Case Else
                 MsgBox("No selected report!", vbCritical)
